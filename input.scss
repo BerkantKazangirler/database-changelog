@@ -1,13 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 $black-bg-color: #0a0a0a;
-$solid-bg-color: #26334f;
 $light-bg-color: #ffffff;
+
 $button-bg-color: #6366f1;
 
 html {
   margin: auto;
   scroll-behavior: smooth;
+}
+
+:root {
+  --theme-text-color: black;
+  --theme-background-color : white;
+}
+
+html[data-theme="light"] {
+  --theme-color: black;
+  --theme-background-color: #ffffff;
+}
+
+html[data-theme="black"] {
+  --theme-color: white;
+  --theme-background-color: #0a0a0a;
+}
+
+html[data-theme="system"] {
+  --theme-color: black;
+  --theme-background-color: #ffffff;
+}
+
+body {
+  background-color: var(--theme-background-color);
 }
 
 header {
@@ -54,7 +78,7 @@ header {
         top: 8px;
         margin-right: 50px;
         text-decoration: none;
-        color: black;
+        color: var(--theme-color);
       }
     }
 
@@ -64,7 +88,7 @@ header {
 
       #bookbutton {
         font-family: 'Poppins', sans-serif;
-        color: white;
+        color: var(--theme-color);
         border-radius: 8px;
         padding: 10px;
         background-color: $button-bg-color;
@@ -124,6 +148,7 @@ header {
   }
 
   span {
+    color: var(--theme-color);
     font-family: 'Poppins', sans-serif;
     font-size: 50px;
     text-align: center;
@@ -131,6 +156,7 @@ header {
   }
 
   p {
+    color: var(--theme-color);
     font-size: 18px;
     align-self: center;
     text-align: center;
@@ -174,7 +200,7 @@ header {
           padding-left: 10px;
           padding-right: 10px;
           border: 1px solid rgba(67, 56, 202, .1);
-          background-color: #eef2ff;
+          background-color: var(--theme-background-color);
         }
 
         #update-date {
@@ -193,11 +219,13 @@ header {
         top: -25px;
 
         h3 {
+          color: var(--theme-color);
           font-weight: 500;
           font-family: 'Poppins', sans-serif;
         }
 
         p {
+          color: var(--theme-color);
           max-width: 640px;
           font-size: 16px;
           text-align: start;
@@ -217,7 +245,7 @@ header {
           li {
             line-height: 30px;
             font-family: 'Poppins',sans-serif;
-            color: black;
+            color: var(--theme-color);
             opacity: 1;
 
             b {
@@ -230,6 +258,7 @@ header {
           }
         }
         #doc-text {
+          color: var(--theme-color);
           margin: 0;
           a {
             text-decoration: none;
@@ -266,6 +295,21 @@ footer {
     flex-direction: row;
     gap: 20px;
 
+    .theme-light:hover,
+    .theme-black:hover,
+    .theme-system:hover {
+      cursor: pointer;
+    }
+
+    .theme-light,
+    .theme-black,
+    .theme-system {
+      color: var(--theme-color);
+      border: 0;
+      background-color: transparent;
+    }
+
+
     svg {
       border-radius: 4px;
       height: 20px;
@@ -290,6 +334,7 @@ footer {
       flex-direction: column;
 
       h3 {
+        color: var(--theme-color);
         font-family: 'Poppins',sans-serif;
         font-size: 14px;
       }
@@ -298,7 +343,7 @@ footer {
         text-align: start;
         font-size: 14px;
         line-height: 30px;
-        color: grey;
+        color: var(--theme-color);
         font-weight: 400;
       }
     }
@@ -323,6 +368,16 @@ footer {
         .hamburgerline {
           display: flex;
         }
+      }
+    }
+  }
+  .main-container {
+    footer {
+      flex-direction: column;
+      .list {
+
+        justify-content: space-around;
+        width: 500px;
       }
     }
   }

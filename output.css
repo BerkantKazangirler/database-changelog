@@ -5,6 +5,30 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --theme-text-color: black;
+  --theme-background-color: white;
+}
+
+html[data-theme=light] {
+  --theme-color: black;
+  --theme-background-color: #ffffff;
+}
+
+html[data-theme=black] {
+  --theme-color: white;
+  --theme-background-color: #0a0a0a;
+}
+
+html[data-theme=system] {
+  --theme-color: black;
+  --theme-background-color: #ffffff;
+}
+
+body {
+  background-color: var(--theme-background-color);
+}
+
 header {
   z-index: 3;
   width: 100%;
@@ -47,7 +71,7 @@ header .header-container .header-links a {
   top: 8px;
   margin-right: 50px;
   text-decoration: none;
-  color: black;
+  color: var(--theme-color);
 }
 header .header-container .buttons {
   display: flex;
@@ -55,7 +79,7 @@ header .header-container .buttons {
 }
 header .header-container .buttons #bookbutton {
   font-family: "Poppins", sans-serif;
-  color: white;
+  color: var(--theme-color);
   border-radius: 8px;
   padding: 10px;
   background-color: #6366f1;
@@ -108,12 +132,14 @@ header .header-container .buttons .hamburgerline .line {
   cursor: pointer;
 }
 .main-container span {
+  color: var(--theme-color);
   font-family: "Poppins", sans-serif;
   font-size: 50px;
   text-align: center;
   font-weight: 600;
 }
 .main-container p {
+  color: var(--theme-color);
   font-size: 18px;
   align-self: center;
   text-align: center;
@@ -156,7 +182,7 @@ header .header-container .buttons .hamburgerline .line {
   padding-left: 10px;
   padding-right: 10px;
   border: 1px solid rgba(67, 56, 202, 0.1);
-  background-color: #eef2ff;
+  background-color: var(--theme-background-color);
 }
 .main-container .changelog-container .changes .changelog-number #update-date {
   position: sticky;
@@ -172,10 +198,12 @@ header .header-container .buttons .hamburgerline .line {
   top: -25px;
 }
 .main-container .changelog-container .changes .changelog-element h3 {
+  color: var(--theme-color);
   font-weight: 500;
   font-family: "Poppins", sans-serif;
 }
 .main-container .changelog-container .changes .changelog-element p {
+  color: var(--theme-color);
   max-width: 640px;
   font-size: 16px;
   text-align: start;
@@ -193,7 +221,7 @@ header .header-container .buttons .hamburgerline .line {
 .main-container .changelog-container .changes .changelog-element ul li {
   line-height: 30px;
   font-family: "Poppins", sans-serif;
-  color: black;
+  color: var(--theme-color);
   opacity: 1;
 }
 .main-container .changelog-container .changes .changelog-element ul li b {
@@ -203,6 +231,7 @@ header .header-container .buttons .hamburgerline .line {
   text-decoration: none;
 }
 .main-container .changelog-container .changes .changelog-element #doc-text {
+  color: var(--theme-color);
   margin: 0;
 }
 .main-container .changelog-container .changes .changelog-element #doc-text a {
@@ -238,6 +267,18 @@ footer .theme-buttons {
     background-color: #eef2ff;
   }*/
 }
+footer .theme-buttons .theme-light:hover,
+footer .theme-buttons .theme-black:hover,
+footer .theme-buttons .theme-system:hover {
+  cursor: pointer;
+}
+footer .theme-buttons .theme-light,
+footer .theme-buttons .theme-black,
+footer .theme-buttons .theme-system {
+  color: var(--theme-color);
+  border: 0;
+  background-color: transparent;
+}
 footer .theme-buttons svg {
   border-radius: 4px;
   height: 20px;
@@ -256,6 +297,7 @@ footer .list .list-elements {
   flex-direction: column;
 }
 footer .list .list-elements h3 {
+  color: var(--theme-color);
   font-family: "Poppins", sans-serif;
   font-size: 14px;
 }
@@ -263,7 +305,7 @@ footer .list .list-elements span {
   text-align: start;
   font-size: 14px;
   line-height: 30px;
-  color: grey;
+  color: var(--theme-color);
   font-weight: 400;
 }
 
@@ -280,6 +322,13 @@ footer .list .list-elements span {
   }
   header .header-container .buttons .hamburgerline {
     display: flex;
+  }
+  .main-container footer {
+    flex-direction: column;
+  }
+  .main-container footer .list {
+    justify-content: space-around;
+    width: 500px;
   }
 }
 
